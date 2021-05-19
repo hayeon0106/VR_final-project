@@ -12,6 +12,7 @@ public class scPlayer : MonoBehaviour {
 	float prevrot;
 	float deltrot;
 
+
 	// Use this for initialization
 	void Start () {
 	}

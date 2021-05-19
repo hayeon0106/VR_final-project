@@ -7,10 +7,13 @@ public class csEnemy : MonoBehaviour {
 	public GameObject enemy;
 
 	float speed = 0.5f;
+	int hltPnt = 0;
+	int atkPnt = 0;
 
 	// Use this for initialization
 	void Start () {
-		
+		hltPnt = 200;
+		atkPnt = 30;
 	}
 	
 	// Update is called once per frame
