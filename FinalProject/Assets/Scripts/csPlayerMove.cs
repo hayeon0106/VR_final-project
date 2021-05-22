@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scPlayer : MonoBehaviour {
+public class csPlayerMove : MonoBehaviour {
+	//시선의 움직임에 따라 플레이어를 이동시킴
 	public GameObject head;
 	public GameObject ARCam;
 	public GameObject player;

@@ -6,16 +6,14 @@ using UnityEngine.UI;
 public class raycast : MonoBehaviour {
 	Animator anim;
 
+	public GameObject player;
+
 	public Image reticle;
 	float timeElapsed;
 
-	int hltPnt = 0;
-	int atkPnt = 0;
-
 	// Use this for initialization
 	void Start () {
-		hltPnt = 1000;
-		atkPnt = 50;
+		anim = transform.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -24,17 +22,14 @@ public class raycast : MonoBehaviour {
 		Vector3 forward = transform.TransformDirection (Vector3.forward) * 100;
 		Debug.DrawRay (transform.position, forward, Color.green);
 		if (Physics.Raycast (transform.position, forward, out hit)) {
-			if (hit.collider.tag == "enemy") {
-				//레이캐스트가 적을 만났을 때 - 공격
-				//효과
-				//공격하는 걸 발사
-				anim.SetBool("isAttack", true);	//애니메이션 변경
-
+			if (hit.collider.tag == "enemy") {	//hit이 적이면
 				timeElapsed = timeElapsed + Time.deltaTime;
-				if (timeElapsed >= 3) {
+				if (timeElapsed >= 3) {		//일정시간 동안 맞췄을 때 공격
 					Debug.Log("플레이어 공격");
-				//	hit.transform.GetComponent<csEnemy> ().hltPnt =
-				//		hit.transform.GetComponent<csEnemy> ().hltPnt - atkPnt;
+
+					anim.SetBool("isAttack", true);	//애니메이션 변경
+					//공격 효과
+					//공격하는 걸 발사
 				}
 			}
 			if (timeElapsed >= 3.0f) {		//버튼 

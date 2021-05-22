@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 269717197}
   - component: {fileID: 269717196}
   - component: {fileID: 269717201}
+  - component: {fileID: 269717202}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: Untagged
@@ -292,7 +293,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 269717195}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &269717199
 Camera:
   m_ObjectHideFlags: 0
@@ -356,7 +357,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbd14ecfd6f51b43b5d64a551dd4bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   reticle: {fileID: 734838066}
+--- !u!114 &269717202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269717195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5412458c6e292e448c0f633b83c51c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hltPnt: 0
+  atkPnt: 0
 --- !u!1 &472304653
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +610,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &702063994 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1309008409571400, guid: 98dd469d8f1eb1a4b9042a3d869490b9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2137181281}
 --- !u!1 &734838065
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +722,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1531507706847306, guid: cee85e95f7eb47849be573079a23ad65, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cee85e95f7eb47849be573079a23ad65, type: 2}
   m_IsPrefabParent: 0
@@ -800,7 +824,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 39cf784658d0d1648906abd745841bc1, type: 2}
+  - {fileID: 2100000, guid: 643671f317f2cce4db634ce50602b4de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -892,6 +916,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 23562829461205482, guid: bf67beae2d4953447953edcca56c08c1,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 49f160a9d7360394ab5bb34ff78535a1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf67beae2d4953447953edcca56c08c1, type: 2}
   m_IsPrefabParent: 0
@@ -923,6 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1667696817}
+  spawn: {fileID: 702063994}
 --- !u!1 &2067534587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1095,7 @@ Prefab:
     - target: {fileID: 114353939604088400, guid: 98dd469d8f1eb1a4b9042a3d869490b9,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98dd469d8f1eb1a4b9042a3d869490b9, type: 2}

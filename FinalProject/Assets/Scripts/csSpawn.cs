@@ -2,43 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scSpawn : MonoBehaviour {
+public class csSpawn : MonoBehaviour {
+	//몬스터 스폰
 
-	public GameObject player;
 	public GameObject spawnPoint;
 	public GameObject enemy;
 
-	bool stopSpawn = false;
+	//스테이지에 따라 몬스터 수, 생성 몬스터 다르게
 	int maxEnemy = 30;
 	float createTime = 5.0f;
 
 	// Use this for initialization
 	void Start () {
-
+		StartCoroutine (this.spawnMonster ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!player.GetComponent<scPlayer> ().enabled) {
-			//몬스터 스폰
-			StartCoroutine (this.spawnMonster ());
-		}
+		
 	}
 
 	IEnumerator spawnMonster(){
-		while(true) {		//스테이지 종료 조건
+		while(true) {
 			int enemyCount = (int)GameObject.FindGameObjectsWithTag ("enemy").Length;
 			Debug.Log ("생성된 몬스터 수: "+enemyCount);
-			Debug.Log (enemyCount == maxEnemy);
+			Debug.Log ("test: "+(enemyCount < maxEnemy));
 
 			if (enemyCount < maxEnemy) {
 				Vector3 pos = spawnPoint.transform.position + new Vector3 (Random.Range (-50, 50), 0, Random.Range (-50, 50));
 				Instantiate (enemy, pos, Quaternion.identity);
 
 				yield return new WaitForSeconds(createTime);
-				//시간을 기다려주지 않음
 			} else {
-				yield return null;
+				break;
 			}
 		}
 	}
