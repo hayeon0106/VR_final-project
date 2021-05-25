@@ -9,7 +9,8 @@ public class csPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		hltPnt = 50;
+		atkPnt = 10;
 	}
 	
 	// Update is called once per frame
