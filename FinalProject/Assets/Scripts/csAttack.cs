@@ -22,14 +22,15 @@ public class csAttack : MonoBehaviour {
 		if(other.transform.tag == "Player"){		//플레이어 공격 받음
 			Debug.Log ("플레이어를 공격");
 			//anim.SetBool ("isAttack", true);	//애니메이션 변경 - 공격, 몬스터의 공격 모션
-			//other.GetComponent<csPlayer> ().hltPnt = 	//플레이어 체력 감소
-			//	other.GetComponent<csPlayer> ().hltPnt - atkPnt;
+			other.GetComponent<csPlayer> ().hltPnt = 	//플레이어 체력 감소
+				other.GetComponent<csPlayer> ().hltPnt - GetComponent<csEnemy>().atkPnt;
 		}
 
 		//부딪힌 것이 플레이어의 기술
 		if (other.transform.tag == "attack") {		//몬스터 공격 받음
 			Debug.Log ("몬스터를 공격");
-			//hltPnt = hltPnt - other.GetComponent<csPlayer> ().atkPnt;		//몬스터 채력 감소
+			GetComponent<csEnemy>().hltPnt = 			//몬스터 채력 감소
+				GetComponent<csEnemy>().hltPnt - other.GetComponent<csPlayer> ().atkPnt;
 		}
 	}
 }

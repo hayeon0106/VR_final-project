@@ -25,5 +25,4 @@ public class csEnemyMove : MonoBehaviour {
 			agent.SetDestination (transform.position);
 		}
 	}
-
 }
