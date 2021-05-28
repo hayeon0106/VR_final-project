@@ -54,6 +54,8 @@ GameObject:
   - component: {fileID: 114668703368810982}
   - component: {fileID: 114165481942374320}
   - component: {fileID: 195656472098707284}
+  - component: {fileID: 114759199550852444}
+  - component: {fileID: 114551452544958486}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: enemy
@@ -404,6 +406,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09abc300eb61f3044801a4ce5cb374aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114551452544958486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198197731358210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b2bbd51b316ba42866aa9ca7a5f2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114668703368810982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,10 +428,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b76a41379db55b4db68b1500db593d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1309008409571400, guid: 98dd469d8f1eb1a4b9042a3d869490b9, type: 2}
-  enemy: {fileID: 1198197731358210}
   hltPnt: 0
   atkPnt: 0
+--- !u!114 &114759199550852444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198197731358210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f200fd75db3cb84db8473632b749253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4135764192766268, guid: 98dd469d8f1eb1a4b9042a3d869490b9, type: 2}
 --- !u!137 &137673211137263362
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

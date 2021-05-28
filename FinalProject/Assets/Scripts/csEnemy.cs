@@ -8,7 +8,6 @@ public class csEnemy : MonoBehaviour {
 
 	Animator anim;
 
-	float speed = 1.0f;
 	public int hltPnt;
 	public int atkPnt;
 

@@ -8,7 +8,6 @@ public class csEnemyMove : MonoBehaviour {
 
 	NavMeshAgent agent;
 
-	[SerializeField]
 	GameObject target;
 
 	// Use this for initialization

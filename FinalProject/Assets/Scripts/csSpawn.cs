@@ -26,7 +26,7 @@ public class csSpawn : MonoBehaviour {
 		while(true) {
 			int enemyCount = (int)GameObject.FindGameObjectsWithTag ("enemy").Length;
 			Debug.Log ("생성된 몬스터 수: "+enemyCount);
-			Debug.Log ("test: "+(enemyCount < maxEnemy));
+			//Debug.Log ("test: "+(enemyCount < maxEnemy));
 
 			if (enemyCount < maxEnemy) {
 				Vector3 pos = spawnPoint.transform.position + new Vector3 (Random.Range (-50, 50), 0, Random.Range (-50, 50));
