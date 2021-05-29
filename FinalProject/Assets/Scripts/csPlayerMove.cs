@@ -7,7 +7,6 @@ public class csPlayerMove : MonoBehaviour {
 	public GameObject head;
 	public GameObject ARCam;
 	public GameObject player;
-	public GameObject platform;
 
 	float currot;
 	float prevrot;

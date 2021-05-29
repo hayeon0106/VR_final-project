@@ -9,6 +9,8 @@ public class csPlayer : MonoBehaviour {
 	public int hltPnt;
 	public int atkPnt;
 
+	GameObject head;
+
 	// Use this for initialization
 	void Start () {
 		hltPnt = 50;

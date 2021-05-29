@@ -22,6 +22,7 @@ public class csEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log ("몬스터 체력: " + hltPnt);
 		//hp가 0이면 오브젝트 제거
 		if (hltPnt <= 0) {
 			StartCoroutine (dead ());
