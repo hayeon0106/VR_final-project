@@ -21,6 +21,7 @@ public class csEnemyAttack : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		//부딪힌 것이 플레이어
 		if(other.transform.tag == "Player"){		//플레이어 공격 받음
+			GetComponent<BoxCollider>().size = new Vector3(1.0f,1.0f,1.0f);
 			Debug.Log ("플레이어를 공격");
 			anim.SetBool ("isAttack", true);	//애니메이션 변경 - 공격, 몬스터의 공격 모션
 			//this.gameObject.GetComponent<AudioSource>().PlayOneShot(expSnd);	//사라지는 효과음

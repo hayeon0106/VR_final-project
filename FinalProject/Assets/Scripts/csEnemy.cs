@@ -13,7 +13,7 @@ public class csEnemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//anim = transform.GetComponent<Animator> ();
+		anim = transform.GetComponent<Animator> ();
 
 		//캐릭터에 따라 hp와 ap를 다르게
 		hltPnt = 15;
@@ -22,7 +22,6 @@ public class csEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log ("몬스터 체력: " + hltPnt);
 		//hp가 0이면 오브젝트 제거
 		if (hltPnt <= 0) {
 			StartCoroutine (dead ());
@@ -36,7 +35,7 @@ public class csEnemy : MonoBehaviour {
 
 		anim.SetBool("isDead", true);	//애니메이션 변경
 		yield return new WaitForSeconds(1.0f);
-		Destroy (this.gameObject);
+		gameObject.SetActive(false);
 		Debug.Log ("몬스터 쓰러짐");
 	}
 }

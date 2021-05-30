@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
 
 public class raycast : MonoBehaviour {
-	public GameObject attack;
+	public GameObject attackObj;
 	public RaycastHit hit;
 
+	public Transform dir;
+	Vector3 _dir;
+
 	public Image reticle;
-	int power;
-	float timeElapsed;
-	float time;
+	int speed;
+	float timeElapsed, time;
+
 	// Use this for initialization
 	void Start () {
 		time = 2.0f;
-		power = 50;
+		speed = 200;
 	}
 	
 	// Update is called once per frame
@@ -27,12 +29,10 @@ public class raycast : MonoBehaviour {
 			if (hit.collider.tag == "enemy") {		//hit이 적이면
 				timeElapsed = timeElapsed + Time.deltaTime;
 				if (timeElapsed >= time) {		//일정시간 동안 맞췄을 때 공격
-					//공격 효과
-					//공격하는 걸 발사
-					Debug.Log ("플레이어의 공격: attack 생성");
-					//this.gameObject.GetComponent<AudioSource>().PlayOneShot(expSnd);	//사라지는 효과음
-					GameObject myAttack = Instantiate (attack, transform.position, Quaternion.identity);
-					myAttack.SendMessage ("setTarget",hit.transform.gameObject);
+					Debug.Log ("플레이어의 공격: attackObj 생성");
+					//this.gameObject.GetComponent<AudioSource>().PlayOneShot(expSnd);	//발사 효과음
+					attack();	//공격 오브젝트 생성, 발사
+
 					timeElapsed = 0.0f;
 					reticle.fillAmount = 0;
 				}
@@ -51,5 +51,18 @@ public class raycast : MonoBehaviour {
 			timeElapsed = timeElapsed - Time.deltaTime;
 			reticle.fillAmount = timeElapsed / time;	//retucle 줄어듬
 		}
+	}
+
+	void attack(){
+		//방향을 계산
+		Vector3 _dir = new Vector3 (dir.position.x - transform.position.x,
+									dir.transform.position.y - transform.position.y,
+									dir.position.z - transform.position.z).normalized;
+		GameObject myAttack = Instantiate (attackObj, dir.transform.position, Quaternion.identity);
+		//발사 방향 * 속도 * 시간
+		Vector3 v = _dir * speed * Time.deltaTime;
+
+		//발사
+		myAttack.GetComponent<Rigidbody>().velocity = v;
 	}
 }
