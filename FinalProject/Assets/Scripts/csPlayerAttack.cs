@@ -12,7 +12,7 @@ public class csPlayerAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -20,8 +20,10 @@ public class csPlayerAttack : MonoBehaviour {
 		Debug.Log("attack trigger: "+other);
 		if (other.transform.tag == "enemy") {
 			Debug.Log ("몬스터를 공격");
-			other.GetComponent<csEnemy>().hltPnt = 			//몬스터 채력 감소
-				other.GetComponent<csEnemy>().hltPnt - player.GetComponent<csPlayer> ().atkPnt;
+
+			other.GetComponent<csEnemy> ().hltPnt = //몬스터 채력 감소
+				other.GetComponent<csEnemy> ().hltPnt - player.GetComponent<csPlayer> ().atkPnt;
+			
 			Destroy (this.gameObject);
 			Debug.Log ("공격하고 사라짐");
 		}

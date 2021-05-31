@@ -26,7 +26,8 @@ public class raycast : MonoBehaviour {
 		Debug.DrawRay (transform.position, forward, Color.green);
 
 		if (Physics.Raycast (transform.position, forward, out hit)) {
-			if (hit.collider.tag == "enemy") {		//hit이 적이면
+			//hit이 적이면
+			if (hit.collider.tag == "enemy") {
 				timeElapsed = timeElapsed + Time.deltaTime;
 				if (timeElapsed >= time) {		//일정시간 동안 맞췄을 때 공격
 					Debug.Log ("플레이어의 공격: attackObj 생성");
@@ -39,12 +40,20 @@ public class raycast : MonoBehaviour {
 				timeElapsed = timeElapsed + Time.deltaTime;
 				reticle.fillAmount = timeElapsed / time;
 			}
-			//if (timeElapsed >= time) {		//버튼 
-			//	timeElapsed = time;
-			//}
 
+			//hit이 아이템일 때
+			if (hit.collider.tag == "item") {
+				if (hit.transform.gameObject.name == "Bottle_Health")	//회복 아이템
+					transform.GetChild (2).GetComponent<csPlayer> ().hltPnt += 50;
+				else if (hit.transform.gameObject.name == "Bottle_Endurance") { //공격력 상승
+					transform.GetChild (2).GetComponent<csPlayer> ().atkPnt += 15;
+					//일정 시간이 지나면 원래대로
+				} else {	//주위의 적 전체 공격
+					
+				}
+			}
 		}
-		else {
+		else {		//그 외
 			if (timeElapsed <= 0.0f) {
 				timeElapsed = 0.0f;
 			}

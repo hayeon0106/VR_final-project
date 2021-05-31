@@ -25,7 +25,7 @@ public class csSpawn : MonoBehaviour {
 	IEnumerator spawnMonster(){
 		while(true) {
 			int enemyCount = (int)GameObject.FindGameObjectsWithTag ("enemy").Length;
-			//Debug.Log ("생성된 몬스터 수: "+enemyCount);
+			Debug.Log ("생성된 몬스터 수: "+enemyCount);
 			//Debug.Log ("test: "+(enemyCount < maxEnemy));
 
 			if (enemyCount < maxEnemy) {
