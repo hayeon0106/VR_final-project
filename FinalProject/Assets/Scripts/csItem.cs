@@ -27,7 +27,7 @@ public class csItem : MonoBehaviour {
 
 	void getItem(){
 		//UI에 아이템 생성
-		item = Instantiate(itemPrefabs[itemType], itemSpawn.transform);
+		//item = Instantiate(itemPrefabs[itemType], itemSpawn.transform);
 
 	}
 }

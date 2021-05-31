@@ -7,6 +7,7 @@ public class csEnemy : MonoBehaviour {
 	//체력이 다 달면 사라짐
 
 	Animator anim;
+	GameObject head;
 	public GameObject item;
 
 	public int hltPnt;
@@ -17,6 +18,8 @@ public class csEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = transform.GetComponent<Animator> ();
+		head = GameObject.FindGameObjectWithTag ("head");
+		Debug.Log (head);
 
 		//캐릭터에 따라 hp와 ap를 다르게
 		hltPnt = 15;
@@ -28,7 +31,6 @@ public class csEnemy : MonoBehaviour {
 	void Update () {
 		//hp가 0이면 오브젝트 제거
 		if (hltPnt <= 0) {
-			//this.gameObject.GetComponent<MeshRenderer> ().enabled = false;	//사라지는 효과
 			//this.gameObject.GetComponent<AudioSource>().PlayOneShot(expSnd);	//사라지는 효과음
 			//explosion.SetActive(true);
 
@@ -36,11 +38,13 @@ public class csEnemy : MonoBehaviour {
 			anim.SetBool("isDead", true);	//애니메이션 변경
 			if(timeElapsed>time) {
 				gameObject.SetActive(false);	//적 비활성화
+				Debug.Log ("몬스터 쓰러짐");
+				head.SendMessage ("increaseCountFallEnemy");
+				//Instantiate (item, transform);
+				Debug.Log ("아이템 생성");
 				timeElapsed=0.0f;
 			}
-			Debug.Log ("몬스터 쓰러짐");
-			//		Instantiate (item,transform);
-			Debug.Log ("아이템 생성");
+
 		}
 	}
 }

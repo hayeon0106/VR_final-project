@@ -6,6 +6,7 @@ public class csSpawn : MonoBehaviour {
 	//몬스터 스폰
 
 	public GameObject spawnPoint;
+	public GameObject enemys;
 	public GameObject enemy;
 
 	//스테이지에 따라 몬스터 수, 생성 몬스터 다르게
@@ -30,7 +31,8 @@ public class csSpawn : MonoBehaviour {
 
 			if (enemyCount < maxEnemy) {
 				Vector3 pos = spawnPoint.transform.position + new Vector3 (Random.Range (-50, 50), 0, Random.Range (-50, 50));
-				Instantiate (enemy, pos, Quaternion.identity);
+				GameObject e = Instantiate (enemy, pos, Quaternion.identity);
+				e.transform.parent = enemys.transform;
 
 				yield return new WaitForSeconds(createTime);
 			} else {
