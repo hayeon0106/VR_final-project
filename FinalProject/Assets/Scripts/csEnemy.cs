@@ -19,7 +19,6 @@ public class csEnemy : MonoBehaviour {
 	void Start () {
 		anim = transform.GetComponent<Animator> ();
 		head = GameObject.FindGameObjectWithTag ("head");
-		Debug.Log (head);
 
 		//캐릭터에 따라 hp와 ap를 다르게
 		hltPnt = 15;

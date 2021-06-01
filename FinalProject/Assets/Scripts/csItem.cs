@@ -11,9 +11,6 @@ public class csItem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//itemPrefabs [0] = Resources.Load ("/Prefabs/Bottle_Endurance") as GameObject;
-		//itemPrefabs [1] = Resources.Load ("/Prefabs/Bottle_Health") as GameObject;
-		//itemPrefabs [2] = Resources.Load ("/Prefabs/Bottle_Mana") as GameObject;
 		itemType = Random.Range (0, 3);
 		getItem ();
 	}

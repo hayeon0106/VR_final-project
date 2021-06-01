@@ -23,7 +23,7 @@ public class csPlayerMove : MonoBehaviour {
 	}
 
 	void movement(){
-		head.transform.Translate (ARCam.transform.forward.x * 0.1f, 0.0f, ARCam.transform.forward.z * 0.1f);
+		head.transform.Translate (ARCam.transform.forward.x * 0.2f, 0.0f, ARCam.transform.forward.z * 0.2f);
 		currot = ARCam.transform.eulerAngles.y;
 		deltrot = currot - prevrot;
 		prevrot = currot;

@@ -7,6 +7,7 @@ TagManager:
   - platform
   - enemy
   - head
+  - btn
   layers:
   - Default
   - TransparentFX

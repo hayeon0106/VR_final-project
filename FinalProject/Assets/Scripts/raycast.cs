@@ -26,34 +26,43 @@ public class raycast : MonoBehaviour {
 		Debug.DrawRay (transform.position, forward, Color.green);
 
 		if (Physics.Raycast (transform.position, forward, out hit)) {
-			//hit이 적이면
+			//버튼
+			if (hit.collider.tag == "btn") {
+				if (startTimer()) {
+					hit.transform.GetComponent<Button> ().onClick.Invoke ();
+					Debug.Log ("버튼 눌림");
+				}
+			}
+
+			//적
 			if (hit.collider.tag == "enemy") {
-				timeElapsed = timeElapsed + Time.deltaTime;
-				if (timeElapsed >= time) {		//일정시간 동안 맞췄을 때 공격
+				if (startTimer()) {		//일정시간 동안 맞췄을 때 공격
 					Debug.Log ("플레이어의 공격: attackObj 생성");
 					//this.gameObject.GetComponent<AudioSource>().PlayOneShot(expSnd);	//발사 효과음
-					attack();	//공격 오브젝트 생성, 발사
+					attack ();	//공격 오브젝트 생성, 발사
 
 					timeElapsed = 0.0f;
 					reticle.fillAmount = 0;
-				}
-				timeElapsed = timeElapsed + Time.deltaTime;
-				reticle.fillAmount = timeElapsed / time;
+					}
 			}
 
-			//hit이 아이템일 때
+			//아이템
 			if (hit.collider.tag == "item") {
-				if (hit.transform.gameObject.name == "Bottle_Health")	//회복 아이템
-					transform.GetChild (2).GetComponent<csPlayer> ().hltPnt += 50;
-				else if (hit.transform.gameObject.name == "Bottle_Endurance") { //공격력 상승
-					transform.GetChild (2).GetComponent<csPlayer> ().atkPnt += 15;
-					//일정 시간이 지나면 원래대로
-				} else {	//주위의 적 전체 공격
+				if (startTimer()) {
+					if (hit.transform.gameObject.name == "Bottle_Health")	//회복 아이템
+						transform.GetChild (2).GetComponent<csPlayer> ().hltPnt += 50;
+					else if (hit.transform.gameObject.name == "Bottle_Endurance") { //공격력 상승
+						transform.GetChild (2).GetComponent<csPlayer> ().atkPnt += 15;
+						//일정 시간이 지나면 원래대로
+					} else {	//주위의 적 전체 공격
 					
+					}
 				}
 			}
+
 		}
-		else {		//그 외
+
+	else {		//그 외
 			if (timeElapsed <= 0.0f) {
 				timeElapsed = 0.0f;
 			}
@@ -73,5 +82,12 @@ public class raycast : MonoBehaviour {
 
 		//발사
 		myAttack.GetComponent<Rigidbody>().velocity = v;
+	}
+
+	bool startTimer(){
+		timeElapsed = timeElapsed + Time.deltaTime;
+		reticle.fillAmount = timeElapsed / time;
+
+		return timeElapsed >= time;
 	}
 }

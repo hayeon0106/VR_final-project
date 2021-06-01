@@ -10,12 +10,13 @@ public class csPlayer : MonoBehaviour {
 	float MaxHltPnt;
 
 	public GameObject head;
+	public GameObject gameOver;
 
 	public Image reticle;
 
 	// Use this for initialization
 	void Start () {
-		hltPnt = 50;
+		hltPnt = 10;
 		atkPnt = 10;
 		MaxHltPnt = (float)hltPnt;
 	}
@@ -27,9 +28,9 @@ public class csPlayer : MonoBehaviour {
 		GetComponent<CapsuleCollider> ().radius = head.GetComponent<csPlayerMove> ().enabled ? 0.08f : 0.2f;
 		//Debug.Log ("Player hp: "+hltPnt);
 		reticle.fillAmount = hltPnt/MaxHltPnt;
-		if (hltPnt <= 0) {
+		if (hltPnt <= 0) {	//hp가 0이면 게임오버
 			Debug.Log ("플레이어 쓰러짐");
-			//hp가 0이면 게임오버
+			gameOver.SetActive (true);
 		}
 	}
 }
