@@ -17,7 +17,6 @@ public class csPlayerAttack : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		//몬스터 공격 받음
-		Debug.Log("attack trigger: "+other);
 		if (other.transform.tag == "enemy") {
 			Debug.Log ("몬스터를 공격");
 

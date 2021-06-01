@@ -8,10 +8,10 @@ public class csEnemy : MonoBehaviour {
 
 	Animator anim;
 	GameObject head;
-	public GameObject item;
 
 	public int hltPnt;
 	public int atkPnt;
+	int randomN;
 
 	float timeElapsed, time;
 
@@ -39,9 +39,8 @@ public class csEnemy : MonoBehaviour {
 				gameObject.SetActive(false);	//적 비활성화
 				Debug.Log ("몬스터 쓰러짐");
 				head.SendMessage ("increaseCountFallEnemy");
-				//Instantiate (item, transform);
-				Debug.Log ("아이템 생성");
-				timeElapsed=0.0f;
+				
+				timeElapsed = 0.0f;
 			}
 
 		}

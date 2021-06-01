@@ -428,8 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b76a41379db55b4db68b1500db593d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 0}
-  item: {fileID: 1815680247687074, guid: 29180fa9896396149b6b63534657a3af, type: 2}
   hltPnt: 0
   atkPnt: 0
 --- !u!114 &114759199550852444

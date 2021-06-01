@@ -31,6 +31,8 @@ public class raycast : MonoBehaviour {
 				if (startTimer()) {
 					hit.transform.GetComponent<Button> ().onClick.Invoke ();
 					Debug.Log ("버튼 눌림");
+
+					timeElapsed = 0.0f;
 				}
 			}
 
@@ -47,19 +49,19 @@ public class raycast : MonoBehaviour {
 			}
 
 			//아이템
-			if (hit.collider.tag == "item") {
+			if (hit.collider.tag == "heal" || hit.collider.tag == "mana") {
 				if (startTimer()) {
-					if (hit.transform.gameObject.name == "Bottle_Health")	//회복 아이템
-						transform.GetChild (2).GetComponent<csPlayer> ().hltPnt += 50;
-					else if (hit.transform.gameObject.name == "Bottle_Endurance") { //공격력 상승
-						transform.GetChild (2).GetComponent<csPlayer> ().atkPnt += 15;
-						//일정 시간이 지나면 원래대로
-					} else {	//주위의 적 전체 공격
-					
+					if (hit.transform.gameObject.tag == "heal") {	//회복 아이템
+						transform.parent.GetComponent<csPlay>().playerHeal();
 					}
+					else if (hit.transform.gameObject.tag == "mana") { //공격력 상승
+						transform.parent.GetComponent<csPlay>().increaseAtkPnt();
+					}
+					timeElapsed = 0.0f;
+					reticle.fillAmount = 0;
+					Destroy (hit.transform.gameObject);
 				}
 			}
-
 		}
 
 	else {		//그 외

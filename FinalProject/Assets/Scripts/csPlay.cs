@@ -11,6 +11,8 @@ public class csPlay : MonoBehaviour {
 	int[] enemyByStage = { 5, 10, 15 };
 	int countStage = 0;
 	int countFallEnemy = 0;
+	int originAtkPnt;
+	int originhltPnt;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +43,27 @@ public class csPlay : MonoBehaviour {
 		Debug.Log ("쓰러진 몬스터 수: " + countFallEnemy);
 	}
 
+	public void playerHeal(){
+		originhltPnt = player.GetComponent<csPlayer> ().MaxHltPnt;
+		int heal = player.GetComponent<csPlayer> ().hltPnt + 15;
+		if (originhltPnt >= heal) {
+			player.GetComponent<csPlayer> ().hltPnt += 15;
+			Debug.Log ("힐");
+		}
+	}
+
+	public void increaseAtkPnt(){
+		originAtkPnt = player.GetComponent<csPlayer> ().atkPnt;
+		int increaseAtkPnt = originAtkPnt + 10;
+		Debug.Log ("원래 공격력: " + originAtkPnt + ", 증가한 공격력: " + increaseAtkPnt);
+		if ((player.GetComponent<csPlayer> ().MaxAtkPnt+20) >= increaseAtkPnt) {
+			player.GetComponent<csPlayer> ().atkPnt = increaseAtkPnt;
+			Debug.Log ("공격력 상승");
+			StartCoroutine ("resetAtkPnt");
+		}
+		Debug.Log ("공격력: " + player.GetComponent<csPlayer> ().atkPnt);
+	}
+
 	void doStage(){
 		Debug.Log ("스테이지 시작");
 		GetComponent<csPlayerMove> ().enabled = false;
@@ -61,5 +84,11 @@ public class csPlay : MonoBehaviour {
 				Destroy (iterator.gameObject);
 			}
 		}
+	}
+
+	IEnumerator resetAtkPnt(){
+		yield return new WaitForSeconds (30.0f);
+		player.GetComponent<csPlayer> ().atkPnt = originAtkPnt;
+		Debug.Log ("공격력 원래대로");
 	}
 }

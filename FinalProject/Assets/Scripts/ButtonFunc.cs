@@ -10,12 +10,7 @@ public class ButtonFunc : MonoBehaviour {
 
 	public void playGame(){
 		Debug.Log ("게임 시작");
-		SceneManager.LoadScene("main");
-	}
-
-	public void selectStage(){
-		Debug.Log ("스테이지 선택");
-		SceneManager.LoadScene ("selectStage");
+		SceneManager.LoadScene("stage1");
 	}
 
 	public void goTitle(){

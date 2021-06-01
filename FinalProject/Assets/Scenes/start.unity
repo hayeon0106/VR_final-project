@@ -337,6 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d036f1c7ef644564ebff5001db11183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
+  text: {fileID: 0}
 --- !u!1 &446397158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1294,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 292707891}
-        m_MethodName: selectStage
+        m_MethodName: playGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
