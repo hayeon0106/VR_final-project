@@ -8,7 +8,9 @@ TagManager:
   - enemy
   - head
   - btn
-  - potion
+  - Fire
+  - heal
+  - mana
   layers:
   - Default
   - TransparentFX

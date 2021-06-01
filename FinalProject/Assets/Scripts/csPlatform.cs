@@ -18,6 +18,7 @@ public class csPlatform : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
+		transform.GetChild (0).gameObject.SetActive (false);
 		head.SendMessage ("doStage");
 		head.transform.position = this.transform.position;
 	}

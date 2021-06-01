@@ -40,7 +40,6 @@ public class raycast : MonoBehaviour {
 			if (hit.collider.tag == "enemy") {
 				if (startTimer()) {		//일정시간 동안 맞췄을 때 공격
 					Debug.Log ("플레이어의 공격: attackObj 생성");
-					//this.gameObject.GetComponent<AudioSource>().PlayOneShot(expSnd);	//발사 효과음
 					attack ();	//공격 오브젝트 생성, 발사
 
 					timeElapsed = 0.0f;
@@ -48,6 +47,7 @@ public class raycast : MonoBehaviour {
 					}
 			}
 
+			Debug.Log (hit.transform.gameObject);
 			//아이템
 			if (hit.collider.tag == "heal" || hit.collider.tag == "mana") {
 				if (startTimer()) {
