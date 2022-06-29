@@ -8,9 +8,7 @@ Vuforia를 활용하여 개발한 VR 게임이다.
 
 # 기술
 
-```
-C#, Vuforia
-```
+> C#, Vuforia
 
 </br>
 
