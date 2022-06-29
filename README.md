@@ -19,3 +19,9 @@ Vuforia를 활용하여 개발한 VR 게임이다.
 쓰러트려야 하는 적의 수가 채워지면 플레이어는 다시 이동할 수 있다. 마지막으로 스테이지를 모두 클리어하면 게임 종료 화면으로 전환한다.
 
 
+### 게임 캡처
+
+![2022-06-29 (1)](https://user-images.githubusercontent.com/84331957/176429380-d7900e81-0480-4cc3-b345-edcc0f925a3c.png)
+![2022-06-29 (2)](https://user-images.githubusercontent.com/84331957/176429397-8502ed9e-471e-4604-97fb-078b559b1c58.png)
+![2022-06-29 (6)](https://user-images.githubusercontent.com/84331957/176429441-dc4d51e8-df3c-4814-ba98-e5e7c510acaf.png)
+![2022-06-29 (11)](https://user-images.githubusercontent.com/84331957/176429490-f2c2d4c0-4fa7-4145-a918-59bbc423f034.png)
