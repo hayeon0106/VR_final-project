@@ -8,7 +8,7 @@ Vuforia를 활용하여 개발한 VR 게임이다.
 
 # 기술&도구
 
-C++, Vuforia</br>
+C#, Vuforia</br>
 유니티
 
 </br>
