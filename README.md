@@ -6,10 +6,11 @@ Vuforia를 활용하여 개발한 VR 게임이다.
 
 </br>
 
-# 기술&도구
+# 기술
 
-C#, Vuforia</br>
-유니티
+```
+C#, Vuforia
+```
 
 </br>
 
